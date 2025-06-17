@@ -14,7 +14,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('MongoDB Connected'))
     .catch((err) => console.log(err));
@@ -35,7 +34,7 @@ app.post('/api/upload', upload.single('image'), (req, res) => {
       }
       res.status(200).json({ imageUrl: `/uploads/${req.file.filename}` });
     } catch (err) {
-      console.error('Upload error:', err); // 🪵 See the real error
+      console.error('Upload error:', err);
       res.status(500).json({ error: 'Something went wrong' });
     }
   });

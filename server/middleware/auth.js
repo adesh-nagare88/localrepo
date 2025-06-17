@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
   if (!authHeader || !authHeader.startsWith('Bearer '))
     return res.status(401).json("Access Denied");
 
-  const token = authHeader.split(' ')[1]; // Remove "Bearer "
+  const token = authHeader.split(' ')[1];
   try {
     const verified = jwt.verify(token, process.env.JWT_SECRET);
     req.user = verified;

@@ -3,7 +3,6 @@ const Comment = require('../models/Comment');
 const Post = require('../models/Post');
 const auth = require('../middleware/auth');
 
-// Add comment
 router.post('/:postId', auth, async (req, res) => {
   const comment = new Comment({
     text: req.body.text,

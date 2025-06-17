@@ -3,7 +3,6 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-// Register
 router.post('/register', async (req, res) => {
   try {
     const newUser = new User(req.body);
@@ -14,7 +13,6 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Login
 router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });

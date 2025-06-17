@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const Post = require('./models/Post');
 
 const posts = [
-  // **Technical Posts** 
   {
     "title": "The Rise of Electric Vehicles in India",
     "content": "India's electric vehicle (EV) sector is experiencing rapid growth, propelled by supportive government policies, substantial investments, and rising consumer demand. According to Bloomberg NEF's EV Outlook 2024, EV sales in India are projected to reach 5.9 million units by 2040, with a staggering 199% growth expected by 2027. The acceleration is attributed to an expanding variety of EV models and the increasing popularity of environmentally sustainable transportation among consumers. This marks a significant milestone in India's journey toward a greener and more sustainable automotive future.",

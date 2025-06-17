@@ -4,24 +4,22 @@ const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL_USER, // your Gmail or SMTP email
-    pass: process.env.EMAIL_PASS  // app-specific password
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
   }
 });
 
-// Feedback route
 router.post('/', async (req, res) => {
   const { name, email, message } = req.body;
 
-  // Basic validation
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'All fields are required' });
   }
 
   try {
     await transporter.sendMail({
-      from: `"${name}" <${email}>`, // user name & email
-      to: process.env.EMAIL_USER,   // your receiving email
+      from: `"${name}" <${email}>`,
+      to: process.env.EMAIL_USER,
       subject: `Feedback from ${name}`,
       text: `
         You've received a new message from your portfolio contact form.

@@ -3,7 +3,6 @@ const Post = require('../models/Post');
 const auth = require('../middleware/auth');
 const upload = require('../middleware/upload');
 
-// Create post
 router.post('/', auth, upload.single('image'), async (req, res) => {
   try {
     const { title, content, category } = req.body;
@@ -22,7 +21,6 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
   }
 });
 
-// Get all posts (optionally by category)
 router.get('/', async (req, res) => {
   try {
     const filter = req.query.category ? { category: req.query.category } : {};
@@ -33,7 +31,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Get single post
 router.get('/:id', async (req, res) => {
   try {
     const post = await Post.findById(req.params.id).populate('author', 'username');
@@ -44,7 +41,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Update post (with optional image)
 router.put('/:id', auth, upload.single('image'), async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
@@ -67,7 +63,6 @@ router.put('/:id', auth, upload.single('image'), async (req, res) => {
   }
 });
 
-// Delete post
 router.delete('/:id', auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
