@@ -40,15 +40,19 @@ Installation
    ```bash
    git clone https://github.com/your-username/blogsphere.git
    cd blogsphere
+   
 2.Install backend dependencies:
   cd server
   npm install
+  
 3.Connect to MongoDB:
   Create a .env file inside /server:
   MONGO_URI=your_mongo_connection_string
   JWT_SECRET=your_jwt_secret
+  
 4.Start the backend server:
   npm start
+  
 5.Install frontend dependencies and run React app:
   cd ../client
   npm install
